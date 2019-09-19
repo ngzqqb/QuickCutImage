@@ -13,6 +13,10 @@ namespace sstd{
    CutImageView::CutImageView(){
        connect(this,&CutImageView::sceneCreatorChanged,
                this,[this](){
+           if(this->thisScene){
+               this->thisScene->deleteLater();
+               this->thisScene=nullptr;
+           }
            auto varContex = qmlContext(this);
            assert(varContex);
            auto varObj = this->getSceneCreator()->beginCreate(varContex);
@@ -21,6 +25,7 @@ namespace sstd{
            varItem->setParent(this);
            varItem->setParentItem(this);
            this->getSceneCreator()->completeCreate();
+           this->thisScene = varItem;
        },Qt::DirectConnection);
    }
 
