@@ -34,6 +34,22 @@ void CutImageView::componentComplete() {
     Super::componentComplete();
 }
 
+void CutImageView::setViewHeight(qreal arg){
+    if (std::abs(arg - thisViewHeight ) < std::numeric_limits<float>::epsilon() ){
+        return;
+    }
+    thisViewHeight = arg;
+    viewHeightChanged();
+}
+
+void CutImageView::setViewWidth(qreal arg){
+    if (std::abs(arg - thisViewWidth ) < std::numeric_limits<float>::epsilon() ){
+        return;
+    }
+    thisViewWidth = arg;
+    viewWidthChanged();
+}
+
 void CutImageView::setSceneCreator(QQmlComponent * arg){
     Private::setSceneCreator(this,arg);
 }
