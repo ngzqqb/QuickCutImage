@@ -10,6 +10,10 @@ namespace sstd{
         Q_OBJECT
     public:
         CutImageView();
+    public:
+        inline QQmlComponent * getSceneCreator()const;
+        void setSceneCreator(QQmlComponent *);
+        Q_SIGNAL void sceneCreatorChanged();
     private:
         using Super = QQuickItem;
         class Private;
@@ -18,6 +22,10 @@ namespace sstd{
     protected:
         void componentComplete() override;
     };
+
+    inline QQmlComponent * CutImageView::getSceneCreator()const{
+        return thisSceneCreatorComponent ;
+    }
 
     }/*namespace qcutimage*/
 

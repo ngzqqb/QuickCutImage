@@ -21,14 +21,15 @@ namespace sstd::qcutimage{
     }
 
     inline void CutImageScene::Private::setImageCreator(TT thiss,QQmlComponent *arg){
-        if( thiss->thisImageCreatorComponent == arg ){
+        if( thiss->getImageCreator() == arg ){
             return;
         }
-        if( thiss->thisImageCreatorComponent ){
+        if( thiss->getImageCreator() ){
             qWarning() << QStringLiteral( "ImageCreator属性是只读的" );
             return;
         }
         thiss->thisImageCreatorComponent = arg;
+        thiss->imageCreatorChanged();
         return;
     }
 

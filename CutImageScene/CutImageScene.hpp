@@ -9,12 +9,13 @@ namespace sstd{
     class CutImageScene : public QQuickItem {
         Q_OBJECT
     private:
-
+        Q_PROPERTY(QQmlComponent * imageCreator READ getImageCreator WRITE setImageCreator NOTIFY imageCreatorChanged)
     public:
         CutImageScene();
     public:
         inline QQmlComponent * getImageCreator() const;
         void setImageCreator(QQmlComponent *);
+        Q_SIGNAL void imageCreatorChanged();
     private:
         using Super = QQuickItem;
         class Private;
