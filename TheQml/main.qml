@@ -8,8 +8,12 @@ ApplicationWindow {
     height: 480
     title: qsTr("快速切图")
 
-    CutImageView {
-anchors.fill: parent ;
+    CutImageView  {
+        anchors.fill : parent ;
+        sceneCreator : CutImageScene{
+            imageCreator:Image{
+            }
+        }
     }
 
 }

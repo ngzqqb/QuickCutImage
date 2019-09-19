@@ -6,8 +6,10 @@ namespace sstd{
 
     namespace qcutimage {
 
-    class CutImageView: public QQuickItem{
+    class CutImageView : public QQuickItem{
         Q_OBJECT
+    private:
+        Q_PROPERTY(QQmlComponent * sceneCreator READ getSceneCreator WRITE setSceneCreator NOTIFY sceneCreatorChanged)
     public:
         CutImageView();
     public:
@@ -19,6 +21,7 @@ namespace sstd{
         class Private;
         friend class Private;
         QQmlComponent * thisSceneCreatorComponent{ nullptr };
+        QQuickItem * thisScene{ nullptr };
     protected:
         void componentComplete() override;
     };
