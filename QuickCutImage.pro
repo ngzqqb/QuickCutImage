@@ -37,12 +37,21 @@ HEADERS += $$PWD/CutImageView/CutImageView.hpp
 SOURCES += $$PWD/CutimageImage/CutimageImage.cpp
 HEADERS += $$PWD/CutimageImage/CutimageImage.hpp
 
-
-
-
-
-
-
-
+SOURCES += $$PWD/GLEWSupport/glew.c
+INCLUDEPATH += $$PWD/GLEWSupport
+DEFINES *= GLEW_NO_GLU
+DEFINES *= GLEW_STATIC
+win32:{
+    LIBS+= -lopengl32 -lgdi32 -luser32 -lkernel32
+} else {
+###libglu1-mesa-dev
+###libgl1-mesa-dev
+###libxi-dev
+###libxmu-dev
+    LIBS+=-lXmu -lXi -lGL -lXext -lX11
+}
+HEADERS += $$PWD/GLEWSupport/sstd_glew.hpp
+SOURCES += $$PWD/GLEWSupport/sstd_glew.cpp
+SOURCES += $$PWD/GLEWSupport/sstd_glew_initialization.cpp
 
 
