@@ -34,7 +34,8 @@ HEADERS += $$PWD/CutImageScene/CutImageScene.hpp
 SOURCES += $$PWD/CutImageView/CutImageView.cpp
 HEADERS += $$PWD/CutImageView/CutImageView.hpp
 
-
+SOURCES += $$PWD/CutimageImage/CutimageImage.cpp
+HEADERS += $$PWD/CutimageImage/CutimageImage.hpp
 
 
 
